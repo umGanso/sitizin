@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Formulário com Evento Submit</title>
+</head>
+<body>
+
+    <nav>
+        <div class="cabeça">
+            <a href="Home.html">Home</a>
+            <a href="Perfil.html">Perfil</a>
+            <a href="Loja.html">Loja</a>
+            <a href="Musicas.html">Músicas</a>
+            <a href="Contato.html">Contato</a>
+        </div>
+    </nav>
+<div class="container">
+    <h1>Formulário de Contato</h1>
+
+
+    <form id="meuFormulario">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <button type="submit">Enviar</button>
+    </form>
+
+    <div id="mensagem"></div>
+</div>
+
+
+
+<script>
+  const formulario = document.getElementById('meuFormulario');
+  const mensagemDiv = document.getElementById('mensagem');
+
+  formulario.addEventListener('submit', function(evento) {
+    evento.preventDefault(); // Impede que o formulário seja enviado
+
+    const nome = formulario.nome.value;
+    const email = formulario.email.value;
+
+    const mensagem = `Obrigado, ${nome}! Seu email (${email}) foi recebido com sucesso.`;
+    mensagemDiv.textContent = mensagem;
+
+    formulario.reset(); // Limpa os campos do formulário
+  });
+</script>
+
+<footer>
+  <p class="rodape">&copy; 2023 GansosLTDA. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
